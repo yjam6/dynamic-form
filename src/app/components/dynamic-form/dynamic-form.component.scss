@@ -1,0 +1,45 @@
+.sub-form-padd
+{
+    padding: 0!important;
+}
+.dynamic-form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+
+    .sub-form
+    {
+        width: 100%!important;
+    }
+    .label-form
+    {
+        padding-bottom: 5px;
+    }
+    .formField {
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .formField-container {
+        width: 50%;
+    }
+
+    .input-form {
+        width: 100%;
+        height: 45px;
+    }
+
+    mat-select {
+        border: 1px solid black;
+        width: 100%;
+        height: 47px;
+        padding: 0;
+
+    }
+
+    mat-radio-button:not(:first-child){
+        padding-left: 20px;
+    }
+
+}

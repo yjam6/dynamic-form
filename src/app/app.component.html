@@ -1,0 +1,12 @@
+<div class="main">
+  <h1>Dynamic Form Demo</h1>
+  <div class="textarea-bloc">
+  <textarea placeholder="Enter Json Form Config"  [(ngModel)]="myform"></textarea>
+
+</div>
+
+
+<div class="form-bloc">
+<dynamic-form  (valueChanges)="consoleLog($event)" [configJson]="myform"></dynamic-form>
+</div>
+</div>

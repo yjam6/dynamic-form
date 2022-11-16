@@ -1,0 +1,28 @@
+<div [formGroup]="formGroup" class="dynamic-form" [ngClass]="{'sub-form-padd':isSubForm}">
+    <div *ngFor="let item of config" class="formField-container" [ngClass]="{'sub-form':item.type == FieldType.ADDRESS}">
+        <div class="formField" *ngIf="item.type !== FieldType.ADDRESS">
+            <mat-label class="label-form">{{item.label}}</mat-label>
+                <div >
+                    <input [placeholder]="item.placeholder || ''" class="input-form" [type]="!!item.options && item.options['valueType'] === 'numeric' ? 'number' :''" *ngIf="item.type == FieldType.TEXT" matInput [formControlName]="item.label">
+
+                    <mat-select *ngIf="item.type == FieldType.COMBOBOX" [formControlName]="item.label">
+                        <mat-option *ngFor="let option of item.possibleValues" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-select>
+
+
+                    <mat-radio-group *ngIf="item.type == FieldType.RADIO" [formControlName]="item.label">
+                        <mat-radio-button *ngFor="let option of item.possibleValues" [value]="option">{{option}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+
+                </div>
+        </div>
+
+        <div class="formField sub-form-padd"   *ngIf="item.type == FieldType.ADDRESS">
+             <dynamic-form  [configJson]="ADDRESS_FORM" [isSubForm]="true" [formGroup]="formGroup"></dynamic-form>
+        </div>
+    </div>
+
+</div>
